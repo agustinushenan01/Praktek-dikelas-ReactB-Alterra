@@ -1,0 +1,15 @@
+.latar {
+    background-color: gray;
+}
+
+.lataradmin {
+    background-color: red;
+}
+
+ul li {
+    list-style: none;
+}
+
+.button {
+    background-color: red;
+}

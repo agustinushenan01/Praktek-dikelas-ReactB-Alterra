@@ -1,15 +1,20 @@
-import Navbar from "./component/Navbar";
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection.jsx";
+import "./assets/css/style.css";
 
 export default function App() {
-  const bahasa = "indonesia";
+  const handleMouseEnter = () => {
+    console.log('Mouse masuk');
+  };
+
+  const handleMouseOut = () => {
+    console.log('Mouse keluar');
+  };
   return (
     <>
-      <h1>Halaman APP</h1>
-      <div>
-        herosection
-      </div>
+      <h1 onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseOut}>Halaman APP</h1>
+      <HeroSection />
       <Navbar nama = {"John"}/>
-      <button>{bahasa.toLowerCase() === "indonesia" ? "Tombol" : "Button"}</button>
     </>
   )
 }
