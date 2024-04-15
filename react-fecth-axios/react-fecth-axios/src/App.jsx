@@ -25,11 +25,13 @@ function App() {
 
   return (
     <div>
-      <h1 className='text-3xl font-medium'>Halo</h1>
+      <h1 className='text-3xl font-medium'>Fecth data</h1>
       {data && data.map((Todo) => (
         <div key={Todo.id}>
-          <p>Todo: {capitalizeFirstLetter(Todo.Todo)}</p>
-          <p>Name: {capitalizeFirstLetter(Todo.Name)}</p> <br />
+          <img src={Todo.Avatar} alt="Avatar" />
+          <p><span className='font-medium'>Name:</span> {capitalizeFirstLetter(Todo.Name)}</p>
+          <p><span className='font-medium'>Todo:</span> {capitalizeFirstLetter(Todo.Todo)}</p>
+          <p><span className='font-medium'>Comment:</span> {capitalizeFirstLetter(Todo.Comment)}</p> <br />
         </div>
       ))}
     </div>
