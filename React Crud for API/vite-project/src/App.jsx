@@ -66,8 +66,8 @@ function App() {
 
   // Fungsi edit Data
   const handleEdit = async (id) => {
-    if (!validateAge(age) || !validateName(name)) {
-      console.log("Validation failed for", {name, age});
+    if (!validateAge(editAge) || !validateName(editName)) {
+      console.log("Validation failed for", {editName, editAge});
       alert('Invalid input. Check age and name.');
       return;
     }
