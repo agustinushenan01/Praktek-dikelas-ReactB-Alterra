@@ -103,19 +103,19 @@ function App() {
         <form onSubmit={handleSubmit} action="post" className='flex flex-col px-2 py-2'>
           <h2 className='text-center mb-4 font-medium text-2xl'>Tambah Data</h2>
           <input type="text" value={name} onChange={(e) => {
-            setName(e.target.value);
-            if (!validateName(e.target.value)) {
-              console.log("Invalid name format");
+            const value = e.target.value;
+            if (validateName(value) || value === '') {
+              setName(value);
+            } else {
               alert('Invalid name format.');
-              // Optionally, you can display an error message to the user here
             }
           }} placeholder='Input your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
           <input type="number" value={age} onChange={(e) => {
-            setAge(e.target.value);
-            if (!validateAge(e.target.value)) {
-              console.log("Invalid age format");
+            const value = e.target.value;
+            if (validateAge(value) || value === '') {
+              setAge(value);
+            } else {
               alert('Invalid age format.');
-              // Optionally, you can display an error message to the user here
             }
           }} placeholder='Input your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
           <button type="submit" className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Submit</button>
@@ -134,19 +134,19 @@ function App() {
           <div className='flex flex-col px-2 py-2 w-36 bg-blue-50 rounded-lg shadow-lg'>
             <h2 className='text-center mb-4 font-medium text-2xl'>Edit Data</h2>
             <input type="text" value={editName} onChange={(e) => {
-              setEditName(e.target.value);
-              if (!validateName(e.target.value)) {
-                console.log("Invalid name format");
+              const value = e.target.value;
+              if (validateName(value) || value === '') {
+                setEditName(value);
+              } else {
                 alert('Invalid name format.');
-                // Optionally, you can display an error message to the user here
               }
             }} placeholder='Edit your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
             <input type="number" value={editAge} onChange={(e) => {
-              setEditAge(e.target.value)
-              if (!validateAge(e.target.value)) {
-                console.log("Invalid age format");
+              const value = e.target.value;
+              if (validateAge(value) || value === '') {
+                setEditAge(value);
+              } else {
                 alert('Invalid age format.');
-                // Optionally, you can display an error message to the user here
               }
             }} placeholder='Edit your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
             <button onClick={() => handleEdit(Todo.id)} className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Save</button>
