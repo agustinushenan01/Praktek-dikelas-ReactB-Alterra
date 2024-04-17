@@ -24,9 +24,23 @@ function App() {
     fetchData();
   }, []);
 
+  function validateName(name) {
+    const regex = /^(?!\s+$)[a-zA-Z0-9]*$/;
+    return regex.test(name);
+  }
+
+  function validateAge(age) {
+    const regex = /^(1[0-9]{1,2}|200|[2-9][0-9]?)$/;
+    return regex.test(age);
+  }
+
   // Fungsi Tambah Data
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!validateAge(age) || !validateName(name)) {
+      console.error('Invalid input. Check age and name.');
+      return; // Stop the form submission if validation fails
+    }
     try {
       const response = await axios.post(FecthURL, { Name: name, Age: age });
       setData([...data, response.data]); // Assuming the API returns the newly added item
@@ -50,6 +64,10 @@ function App() {
 
   // Fungsi edit Data
   const handleEdit = async (id) => {
+    if (!validateAge(editAge) || !validateName(editName)) {
+      console.error('Invalid input. Check age and name.');
+      return; // Stop the form submission if validation fails
+    }
     try {
       const TodoDataEdit = {
         Name: editName,
@@ -100,7 +118,7 @@ function App() {
             <h2 className='text-center mb-4 font-medium text-2xl'>Edit Data</h2>
             <input type="text" value={editName} onChange={(e) => setEditName(e.target.value)} placeholder='Edit your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
             <input type="number" value={editAge} onChange={(e) => setEditAge(e.target.value)} placeholder='Edit your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
-            <button onClick={() => handleEdit(Todo.id)} className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Submit</button>
+            <button onClick={() => handleEdit(Todo.id)} className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Save</button>
           </div>
           <br />
         </div>
