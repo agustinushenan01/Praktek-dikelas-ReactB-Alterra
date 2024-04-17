@@ -38,7 +38,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateAge(age) || !validateName(name)) {
-      console.log("Validation failed for", {name, age});
+      console.log("Validation failed for", { name, age });
       alert('Invalid input. Check age and name.');
       return;
     }
@@ -67,7 +67,7 @@ function App() {
   // Fungsi edit Data
   const handleEdit = async (id) => {
     if (!validateAge(editAge) || !validateName(editName)) {
-      console.log("Validation failed for", {editName, editAge});
+      console.log("Validation failed for", { editName, editAge });
       alert('Invalid input. Check age and name.');
       return;
     }
@@ -102,8 +102,22 @@ function App() {
       <div className='flex flex-col mx-3 my-4 bg-violet-100 shadow-lg rounded-lg w-72'>
         <form onSubmit={handleSubmit} action="post" className='flex flex-col px-2 py-2'>
           <h2 className='text-center mb-4 font-medium text-2xl'>Tambah Data</h2>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Input your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
-          <input type="number" value={age} onChange={(e) => setAge(e.target.value)} placeholder='Input your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
+          <input type="text" value={name} onChange={(e) => {
+            setName(e.target.value);
+            if (!validateName(e.target.value)) {
+              // console.log("Invalid name format");
+              alert('Invalid name format.');
+              // Optionally, you can display an error message to the user here
+            }
+          }} placeholder='Input your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
+          <input type="number" value={age} onChange={(e) => {
+            setAge(e.target.value);
+            if (!validateAge(e.target.value)) {
+              // console.log("Invalid age format");
+              alert('Invalid age format.');
+              // Optionally, you can display an error message to the user here
+            }
+          }} placeholder='Input your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
           <button type="submit" className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Submit</button>
         </form>
       </div>
@@ -119,8 +133,22 @@ function App() {
           {/* Fungsi Edit Data */}
           <div className='flex flex-col px-2 py-2 w-36 bg-blue-50 rounded-lg shadow-lg'>
             <h2 className='text-center mb-4 font-medium text-2xl'>Edit Data</h2>
-            <input type="text" value={editName} onChange={(e) => setEditName(e.target.value)} placeholder='Edit your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
-            <input type="number" value={editAge} onChange={(e) => setEditAge(e.target.value)} placeholder='Edit your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
+            <input type="text" value={editName} onChange={(e) => {
+              setEditName(e.target.value);
+              if (!validateName(e.target.value)) {
+                // console.log("Invalid name format");
+                alert('Invalid name format.');
+                // Optionally, you can display an error message to the user here
+              }
+            }} placeholder='Edit your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
+            <input type="number" value={editAge} onChange={(e) => {
+              setEditAge(e.target.value)
+              if (!validateAge(e.target.value)) {
+                // console.log("Invalid age format");
+                alert('Invalid age format.');
+                // Optionally, you can display an error message to the user here
+              }
+            }} placeholder='Edit your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
             <button onClick={() => handleEdit(Todo.id)} className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Save</button>
           </div>
           <br />
