@@ -105,7 +105,7 @@ function App() {
           <input type="text" value={name} onChange={(e) => {
             setName(e.target.value);
             if (!validateName(e.target.value)) {
-              // console.log("Invalid name format");
+              console.log("Invalid name format");
               alert('Invalid name format.');
               // Optionally, you can display an error message to the user here
             }
@@ -113,7 +113,7 @@ function App() {
           <input type="number" value={age} onChange={(e) => {
             setAge(e.target.value);
             if (!validateAge(e.target.value)) {
-              // console.log("Invalid age format");
+              console.log("Invalid age format");
               alert('Invalid age format.');
               // Optionally, you can display an error message to the user here
             }
@@ -136,7 +136,7 @@ function App() {
             <input type="text" value={editName} onChange={(e) => {
               setEditName(e.target.value);
               if (!validateName(e.target.value)) {
-                // console.log("Invalid name format");
+                console.log("Invalid name format");
                 alert('Invalid name format.');
                 // Optionally, you can display an error message to the user here
               }
@@ -144,7 +144,7 @@ function App() {
             <input type="number" value={editAge} onChange={(e) => {
               setEditAge(e.target.value)
               if (!validateAge(e.target.value)) {
-                // console.log("Invalid age format");
+                console.log("Invalid age format");
                 alert('Invalid age format.');
                 // Optionally, you can display an error message to the user here
               }
