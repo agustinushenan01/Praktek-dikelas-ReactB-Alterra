@@ -100,7 +100,7 @@ function App() {
             <h2 className='text-center mb-4 font-medium text-2xl'>Edit Data</h2>
             <input type="text" value={editName} onChange={(e) => setEditName(e.target.value)} placeholder='Edit your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
             <input type="number" value={editAge} onChange={(e) => setEditAge(e.target.value)} placeholder='Edit your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
-            <button onClick={() => handleEdit(Todo.id)} className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Submit</button>
+            <button onClick={() => handleEdit(Todo.id)} className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Save</button>
           </div>
           <br />
         </div>
