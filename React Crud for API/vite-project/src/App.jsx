@@ -30,7 +30,7 @@ function App() {
   }
 
   function validateAge(age) {
-    const regex = /^(1[0-9]{1,2}|200|[1-9][0-9]?)$/;
+    const regex =  /^[0-9]+$/;
     return regex.test(age);
   }
 
