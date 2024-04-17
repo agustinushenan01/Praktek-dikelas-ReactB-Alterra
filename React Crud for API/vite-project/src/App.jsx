@@ -38,8 +38,9 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateAge(age) || !validateName(name)) {
-      console.error('Invalid input. Check age and name.');
-      return; // Stop the form submission if validation fails
+      console.log("Validation failed for", {name, age});
+      alert('Invalid input. Check age and name.');
+      return;
     }
     try {
       const response = await axios.post(FecthURL, { Name: name, Age: age });
@@ -57,6 +58,7 @@ function App() {
       await axios.delete(`${FecthURL}/${id}`);
       const newData = data.filter(item => item.id !== id);
       setData(newData);
+      alert("Successfully deleted data")
     } catch (error) {
       console.error('Failed to delete data:', error);
     }
@@ -64,9 +66,10 @@ function App() {
 
   // Fungsi edit Data
   const handleEdit = async (id) => {
-    if (!validateAge(editAge) || !validateName(editName)) {
-      console.error('Invalid input. Check age and name.');
-      return; // Stop the form submission if validation fails
+    if (!validateAge(age) || !validateName(name)) {
+      console.log("Validation failed for", {name, age});
+      alert('Invalid input. Check age and name.');
+      return;
     }
     try {
       const TodoDataEdit = {
