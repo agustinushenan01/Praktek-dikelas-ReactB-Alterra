@@ -106,14 +106,18 @@ function App() {
             const value = e.target.value;
             if (validateName(value) || value === '') {
               setName(value);
+            } else if( value === '' || value.length === 0 ) {
+              alert('Invalid name format.');
             } else {
               alert('Invalid name format.');
             }
           }} placeholder='Input your name' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
           <input type="number" value={age} onChange={(e) => {
             const value = e.target.value;
-            if (validateAge(value) || value === '') {
+            if (validateAge(value)) {
               setAge(value);
+            } else if( value === '' || value.length === 0 ) {
+              alert('Invalid age format.');
             } else {
               alert('Invalid age format.');
             }
@@ -137,6 +141,8 @@ function App() {
               const value = e.target.value;
               if (validateName(value) || value === '') {
                 setEditName(value);
+              } else if( value === '' || value.length === 0 ) {
+                alert('Invalid name format.');
               } else {
                 alert('Invalid name format.');
               }
@@ -145,6 +151,8 @@ function App() {
               const value = e.target.value;
               if (validateAge(value) || value === '') {
                 setEditAge(value);
+              } else if( value === '' || value.length === 0 ) {
+                alert('Invalid age format.');
               } else {
                 alert('Invalid age format.');
               }
