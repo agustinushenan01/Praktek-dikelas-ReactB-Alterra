@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './index.css';
-import './Loading.css';
+import './assets/css/Loading.css';
 
 function App() {
   const [data, setData] = useState([]);
@@ -121,12 +121,13 @@ function App() {
           </form>
         </div>
       )}
+      <div className='grid grid-cols-4 mb-4 p-2 gap-3'>
       {data.map((Todo) => (
-        <div className='px-3 bg-sky-50 py-2 shadow-lg mb-6 rounded-lg' key={Todo.id}>
+        <div className='px-3 bg-sky-50 py-2 shadow-lg rounded-lg' key={Todo.id}>
           <img className='w-32 h-32 shadow-lg rounded-lg' src={Todo.Avatar} alt="Avatar" />
           <p><span className='font-medium'>Name:</span> {capitalizeFirstLetter(Todo.Name)}</p>
           <p><span className='font-medium'>Age:</span> {capitalizeFirstLetter(Todo.Age)}</p>
-          <p><span className='font-medium'>Comment:</span> {capitalizeFirstLetter(Todo.Comment)}</p>
+          <p><span className='font-medium'>Country:</span> {capitalizeFirstLetter(Todo.Country)}</p>
           <button onClick={() => handleDelete(Todo.id)} className='bg-red-500 hover:bg-red-600 rounded-lg px-4 text-white text-lg mb-3'>Delete</button>
 
           {/* Fungsi Edit Data */}
@@ -136,9 +137,9 @@ function App() {
             <input type="number" value={editAge} onChange={(e) => setEditAge(e.target.value)} placeholder='Edit your age' className='border px-1 border-emerald-400 rounded-lg focus:ring focus:outline-none focus:ring-cyan-400 mb-2' />
             <button onClick={() => handleEdit(Todo.id)} className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Save</button>
           </div>
-          <br />
         </div>
       ))}
+      </div>
     </>
   );
 }
