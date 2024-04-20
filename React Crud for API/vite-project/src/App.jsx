@@ -120,7 +120,8 @@ function App() {
             <button type="submit" className='bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white text-lg'>Submit</button>
           </form>
         </div>
-      )}
+      )} 
+      <div className='grid grid-cols-4 gap-4'>
       {data.map((Todo) => (
         <div className='px-3 bg-sky-50 py-2 shadow-lg mb-6 rounded-lg' key={Todo.id}>
           <img className='w-32 h-32 shadow-lg rounded-lg' src={Todo.Avatar} alt="Avatar" />
@@ -139,6 +140,7 @@ function App() {
           <br />
         </div>
       ))}
+      </div>
     </>
   );
 }
