@@ -121,7 +121,7 @@ function App() {
           </form>
         </div>
       )} 
-      <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-4 p-2 lg:gap-4'>
+      <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-4 p-2 sm:gap-1 md:gap-2 lg:gap-4'>
       {data.map((Todo) => (
         <div className='px-3 bg-sky-50 py-2 shadow-lg mb-6 rounded-lg' key={Todo.id}>
           <img className='w-32 h-32 shadow-lg rounded-lg' src={Todo.Avatar} alt="Avatar" />
